@@ -1,0 +1,27 @@
+version: '3'
+
+services: 
+  minha_app:
+    image: luizvbneto:app-dockerizada
+    build: .
+    ports:
+      - 3090:3090
+    depends_on: 
+      - db
+  web:
+    image: nginx
+    volumes:
+      - ./nginx/app.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    depends_on: 
+      - minha_app
+  db:
+    image: postgres
+    restart: always
+    environment: 
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+      - ./postgres
+    ports:
+      - 5432:5432
