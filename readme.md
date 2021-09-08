@@ -1,4 +1,3 @@
-## Projeto final dos meus estudos de DOCKER.
 Aplicacao NODE.JS + POSTGRES + NGINX
 
 ### DOCKER CONTAINER
